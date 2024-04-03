@@ -11,7 +11,7 @@ def decode_prediction(prediction):
         predicted_text += alphabet[char_index]
     return predicted_text
 
-# Загрузка предварительно обученной модели распознавания текста из TensorFlow
+# Загрузка обученной модели распознавания текста из TensorFlow
 model = models.load_model('cursive_text_reader_model.h5')
 
 # Загрузка изображения с текстом
@@ -29,7 +29,7 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 normalized = gray / 255.0
 
 # Изменение размера изображения до размера, ожидаемого моделью
-input_size = (28, 28)  # Предположим, что модель ожидает вход размером 28x28 пикселей
+input_size = (640, 360)  
 resized_image = cv2.resize(normalized, input_size)
 
 # Расширение размерности изображения для подачи в модель
